@@ -128,41 +128,47 @@ namespace PracticaParaEcamenED.Clases
 		}
 
 
+
+
+
+
+
 		/*Ejercicio 2 sacar los datos de una curp*/
 		public void Ejercicio2(string curp)
 		{
-			/*
+			
 			string cadenaCURP = curp;
 
 			//para sacar el sexo de la CURP
 			string sexo = " "; 
-			int cadenaMoH = 11;
-			if (cadenaCURP.Substring(cadenaMoH) == "M" || cadenaCURP.Substring(cadenaMoH) == "m")
+			string cadenaMoH = cadenaCURP.Substring(10,1);
+		
+			if (cadenaMoH == "M" || cadenaMoH == "m")
 			{
-				sexo = "Mujer";
+				sexo = "Mujer"; 
 			}
 			else
 			{
 				sexo = "Hombre";
 			}
-			Console.WriteLine(sexo);
-			/*
+
 			//para sacar la fecha de nacimiento
-			int cadenaAñoInicio = 5;
-			int cadenaAñoFin = 6;
-			int cadenaMesInicio = 7;
-			int cadenaMesFin = 8;
-			string dia, mes, año;
+			string añoNacimiento = cadenaCURP.Substring(4,2);
+			string mesNacimiento = cadenaCURP.Substring(6, 2);
+			string diaNacimienro = cadenaCURP.Substring(8,2);
+			Console.WriteLine($"{diaNacimienro}/{mesNacimiento}/{ añoNacimiento}");
 
-			cadenaCURP.Substring(cadenaAñoInicio + cadenaAñoFin);
-			cadenaCURP.Substring(cadenaMesInicio+cadenaMesFin);
-			*/
+
+			Console.WriteLine($"Usted es del sexo: {sexo}");
 			
-
-
 		}
 
-		/*ejercicio 3 tabla de ventas*/
+
+
+
+
+
+		/*ejercicio 3 tabla de ventas   CORREGIDO EN SU MAYORIA*/
 		public void EjercicioVendedores()
 		{
 			int[,] ganacia = { 
@@ -171,71 +177,67 @@ namespace PracticaParaEcamenED.Clases
 				{ 250, 1800, 2900, 300 }, 
 				{ 400, 130, 90, 2400 }, 
 				{ 60, 20, 4000, 3600 } };
-			int vendedor1 = 0;
-			int vendedor2 = 0;
-			int vendedor3 = 0;
-			int vendedor4 = 0;
-			int producto1 = 0;
-			int producto2 = 0;
-			int producto3 = 0;
-			int producto4 = 0;
-			int producto5 = 0;
+			int[] vendedores = new int[4]; //se pone uno mas del que enrelidad necesitas sino da un error de fura de rango del array
+			int[] productos = new int[5]; //porque? quien sabe la mera neta ¯\(o_o)/¯
+			
+			
 
 			for (int i = 0; i < ganacia.GetLength(0); i++)
 			{
 				for (int j = 0; j < ganacia.GetLength(1); j++)
 				{
-					//no me acuer
-					Console.WriteLine(ganacia[i, j].ToString().PadLeft(5));
+					
+					Console.WriteLine(ganacia[i, j]);
 					switch (j)
 					{
 						case 0:
-							vendedor1 += ganacia[i, j];
+							vendedores[0] += ganacia[i, j];
 							break;
 
 						case 1:
-							vendedor2 +=ganacia[i, j];
+							vendedores[1] +=ganacia[i, j];
 							break;
 						case 2:
-							vendedor3 += ganacia[i, j];
+							vendedores[2] += ganacia[i, j];
 							break;
 						case 3:
-							vendedor4 +=ganacia[i, j];
+							vendedores[3] +=ganacia[i, j];
 							break;
 					}
 
 					switch (i)
 					{
 						case 0:
-							producto1 += ganacia[i, j];
+							productos[0] += ganacia[i, j];
 							break;
 
 						case 1:
-							producto2 += ganacia[i, j];
+							productos[1] += ganacia[i, j];
 							break;
 						case 2:
-							producto3 += ganacia[i, j];
+							productos[2] += ganacia[i, j];
 							break;
 						case 3:
-							producto4 += ganacia[i, j];
+							productos[3] += ganacia[i, j];
 							break;
 						case 4:
-							producto5 += ganacia[i, j];
+							productos[4] += ganacia[i, j];
 							break;
 					}
 
 				}
 				Console.WriteLine();
 			}
-			Console.WriteLine($"ganancias del vendedor 1 {vendedor1}");
-			Console.WriteLine($"ganancias del vendedor 2 {vendedor2}");
-			Console.WriteLine($"ganancias del vendedor 3 {vendedor3}");
-			Console.WriteLine($"ganancias del vendedor 4 {vendedor1}");
-			Console.WriteLine($"ganancias del producto 1 {producto1}");
-			Console.WriteLine($"ganancias del producto 2 {producto2}");
-			Console.WriteLine($"ganancias del producto 3 {producto3}");
-			Console.WriteLine($"ganancias del producto 3 {producto4}");
-			Console.WriteLine($"ganancias del producto 3 {producto5}");
+			for(int x=0; x<vendedores.Length; x++)
+			{
+				Console.WriteLine($"ganancias del vendedor {x}: {vendedores[x]}");
+			}
+			for (int z = 0; z <= vendedores.Length; z++)
+			{
+				Console.WriteLine($"ganancias del producto {z}: {productos[z]}");
+			}
 		}
+
 	}
+
 }
