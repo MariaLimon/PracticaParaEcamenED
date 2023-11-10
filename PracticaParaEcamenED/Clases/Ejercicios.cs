@@ -136,31 +136,32 @@ namespace PracticaParaEcamenED.Clases
 		/*Ejercicio 2 sacar los datos de una curp*/
 		public void Ejercicio2(string curp)
 		{
-			
 			string cadenaCURP = curp;
-
 			//para sacar el sexo de la CURP
 			string sexo = " "; 
 			string cadenaMoH = cadenaCURP.Substring(10,1);
-		
+
 			if (cadenaMoH == "M" || cadenaMoH == "m")
 			{
-				sexo = "Mujer"; 
+				sexo = "Femenino";
 			}
 			else
 			{
-				sexo = "Hombre";
+				if(cadenaMoH == "H" || cadenaMoH == "h")
+				{
+					sexo = "Maculino";
+				}
+				else
+				{
+					sexo = "Ne binarie, amigue";
+				}
+				
 			}
-
 			//para sacar la fecha de nacimiento
 			string añoNacimiento = cadenaCURP.Substring(4,2);
 			string mesNacimiento = cadenaCURP.Substring(6, 2);
-			string diaNacimienro = cadenaCURP.Substring(8,2);
-			Console.WriteLine($"{diaNacimienro}/{mesNacimiento}/{ añoNacimiento}");
-
-
-			Console.WriteLine($"Usted es del sexo: {sexo}");
-			
+			string diaNacimienro = cadenaCURP.Substring(8, 2);
+			Console.WriteLine($"Usted es del sexo: {sexo} y nacio el: {diaNacimienro}/{mesNacimiento}/{añoNacimiento}");
 		}
 
 
